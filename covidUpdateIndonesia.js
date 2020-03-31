@@ -42,7 +42,7 @@ const getStatistic = () => {
                 let time = reformat3.join(':')
 
                 let title = emoji.emojify(`[Indonesia COVID19 update]`)
-                let total = emoji.emojify(`total :busts_in_silhouette:: ${element.cases.total} (${element.cases.new})`)
+                let total = emoji.emojify(`positif :busts_in_silhouette:: ${element.cases.total} (${element.cases.new})`)
                 let recovered = emoji.emojify(`sembuh :heavy_check_mark:: ${element.cases.recovered}`)
                 let death = emoji.emojify(`meninggal :broken_heart:: ${element.deaths.total} (${element.deaths.new})`)
                 
@@ -76,4 +76,4 @@ function sendTweet(body){
 
 getStatistic()
 
-// setInterval(getStatistic, 28800000);
+setInterval(getStatistic, 28800000);
