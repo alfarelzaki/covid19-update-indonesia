@@ -35,8 +35,9 @@ const getStatistic = () => {
                 let reformat1 = element.time.split('T')
                 let reformat2 = reformat1[1].split('+')
                 let reformat3 = reformat2[0].split(':')
-                let hour = '0' + String.valueOf(parseInt(reformat3[0])+7)
-                reformat3[0] = hour
+                let hour = parseInt(reformat3[0])+7
+                let hourReformat = '0' + String.valueOf(hour)
+                reformat3[0] = hourReformat
                 let time = reformat3.join(':')
 
                 let title = emoji.emojify(`[Indonesia COVID19 update]`)
