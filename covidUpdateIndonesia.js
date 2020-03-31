@@ -32,12 +32,16 @@ const getStatistic = () => {
             if (element.country == "Indonesia") {
                 console.log(element)
 
-                let title = emoji.emojify(`[Indonesia COVID19 update :clock3:]`)
+                let arr = element.time.split('T')
+                let arr2 = arr[1].split('+')
+                let time = arr2[0]
+
+                let title = emoji.emojify(`[Indonesia COVID19 update]`)
                 let total = emoji.emojify(`total :busts_in_silhouette:: ${element.cases.total} (${element.cases.new})`)
                 let recovered = emoji.emojify(`sembuh :heavy_check_mark:: ${element.cases.recovered}`)
                 let death = emoji.emojify(`meninggal :broken_heart:: ${element.deaths.total} (${element.deaths.new})`)
                 
-                let statistic = `${title} \n \n ${total} \n ${recovered} \n ${death} \n \n #COVID19 #Indonesia #CoronaVirusUpdates #corona`
+                let statistic = `${title} \n ${time} \n \n ${total} \n ${recovered} \n ${death} \n \n #COVID19 #Indonesia #CoronaVirusUpdates #corona`
                 console.log(statistic)
                 sendTweet(statistic)
             }
@@ -67,4 +71,4 @@ function sendTweet(body){
 
 getStatistic()
 
-setInterval(getStatistic, 28800000);
+// setInterval(getStatistic, 28800000);
