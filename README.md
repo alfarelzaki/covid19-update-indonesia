@@ -1,3 +1,7 @@
+# How this bot works?
+
+Jadi bot ini akan melakukan post secara otomatis pada Twitter setiap 3 jam, pada jam 6 a.m. sampai 9 p.m.
+
 # Package
 
 Beberapa package yang digunakan pada bot ini adalah
