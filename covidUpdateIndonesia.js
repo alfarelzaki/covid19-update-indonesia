@@ -42,6 +42,8 @@ const getStatistic = () => {
                 reformat3[0] = hour % 24
 
                 jamPost.forEach(jam => {
+                    console.log(jam)
+                    console.log(reformat3[0])
                     if (jam == reformat3[0]) {
                         if (reformat3[0] < 10) reformat3[0] = '0' + reformat3[0]              
                         let time = reformat3.join(':')
@@ -53,7 +55,6 @@ const getStatistic = () => {
                         
                         let statistic = `${title} \n ${time} \n \n ${total} \n ${recovered} \n ${death} \n \n #COVID19 #Indonesia #CoronaVirusUpdates #corona`
                         console.log(statistic)
-                        console.log(jam)
                         sendTweet(statistic)
                     }
                 })
