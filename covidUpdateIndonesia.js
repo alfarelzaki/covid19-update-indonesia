@@ -32,9 +32,12 @@ const getStatistic = () => {
             if (element.country == "Indonesia") {
                 console.log(element)
 
-                let arr = element.time.split('T')
-                let arr2 = arr[1].split('+')
-                let time = arr2[0]
+                let reformat1 = element.time.split('T')
+                let reformat2 = arr[1].split('+')
+                let reformat3 = arr2[0].split(':')
+                let hour = '0' + String.valueOf(parseInt(reformat3[0])+7)
+                reformat3[0] = hour
+                let time = reformat3.join(':')
 
                 let title = emoji.emojify(`[Indonesia COVID19 update]`)
                 let total = emoji.emojify(`total :busts_in_silhouette:: ${element.cases.total} (${element.cases.new})`)
