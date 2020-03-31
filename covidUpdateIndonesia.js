@@ -83,4 +83,5 @@ function sendTweet(body){
     T.post('statuses/update', { status:body})
 }
 
+getStatistic()
 setInterval(getStatistic, 3600000);
