@@ -32,23 +32,31 @@ const getStatistic = () => {
             if (element.country == "Indonesia") {
                 console.log(element)
 
+                let jamPost = [6, 9, 12, 15, 18, 21]
+
                 // format date
                 let reformat1 = element.time.split('T')
                 let reformat2 = reformat1[1].split('+')
                 let reformat3 = reformat2[0].split(':')
                 let hour = parseInt(reformat3[0])+7
                 reformat3[0] = hour % 24
-                if (reformat3[0] < 10) reformat3[0] = '0' + reformat3[0]              
-                let time = reformat3.join(':')
 
-                let title = emoji.emojify(`[Indonesia COVID19 update]`)
-                let total = emoji.emojify(`positif :busts_in_silhouette:: ${element.cases.total} (${element.cases.new})`)
-                let recovered = emoji.emojify(`sembuh :heavy_check_mark:: ${element.cases.recovered}`)
-                let death = emoji.emojify(`meninggal :broken_heart:: ${element.deaths.total} (${element.deaths.new})`)
-                
-                let statistic = `${title} \n ${time} \n \n ${total} \n ${recovered} \n ${death} \n \n #COVID19 #Indonesia #CoronaVirusUpdates #corona`
-                console.log(statistic)
-                sendTweet(statistic)
+                jamPost.forEach(jam => {
+                    if (jam == reformat3[0]) {
+                        if (reformat3[0] < 10) reformat3[0] = '0' + reformat3[0]              
+                        let time = reformat3.join(':')
+
+                        let title = emoji.emojify(`[Indonesia COVID19 update]`)
+                        let total = emoji.emojify(`positif :busts_in_silhouette:: ${element.cases.total} (${element.cases.new})`)
+                        let recovered = emoji.emojify(`sembuh :heavy_check_mark:: ${element.cases.recovered}`)
+                        let death = emoji.emojify(`meninggal :broken_heart:: ${element.deaths.total} (${element.deaths.new})`)
+                        
+                        let statistic = `${title} \n ${time} \n \n ${total} \n ${recovered} \n ${death} \n \n #COVID19 #Indonesia #CoronaVirusUpdates #corona`
+                        console.log(statistic)
+                        console.log(jam)
+                        sendTweet(statistic)
+                    }
+                })
             }
         });
     });
@@ -74,6 +82,4 @@ function sendTweet(body){
     T.post('statuses/update', { status:body})
 }
 
-getStatistic()
-
-setInterval(getStatistic, 28800000);
+setInterval(getStatistic, 3600000);
