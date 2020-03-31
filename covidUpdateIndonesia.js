@@ -33,8 +33,8 @@ const getStatistic = () => {
                 console.log(element)
 
                 let reformat1 = element.time.split('T')
-                let reformat2 = arr[1].split('+')
-                let reformat3 = arr2[0].split(':')
+                let reformat2 = reformat1[1].split('+')
+                let reformat3 = reformat2[0].split(':')
                 let hour = '0' + String.valueOf(parseInt(reformat3[0])+7)
                 reformat3[0] = hour
                 let time = reformat3.join(':')
