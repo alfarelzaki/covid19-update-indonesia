@@ -1,1 +1,1 @@
-worker: node cudddlebot.js
+worker: node covidUpdateID.js
