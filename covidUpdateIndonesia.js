@@ -1,17 +1,10 @@
 // dependency untuk melakukan aktivitas twitter
 const twit = require('twit')
 
-// const config = require('./config')
+const config = require('./config')
 
 // dependency untuk mendukung emoji
 var emoji = require('node-emoji')
-
-const config = {
-    consumer_key: 'VkgFk3ZmT8WMzLtpU2X8EJrzD',
-    consumer_secret: 'rAhr4kNIEtMOsPY5EYD6yVOkglCuJGJqA4BS9LLHZzlSxbyWXe',
-    access_token: '1244863236115034113-XCmQBYto5vlaPb0BQ6pciTb41XCd0G',
-    access_token_secret: 'cTa9ncZL5h9rZa9aZUrRMMtZjplkHeevSUlBcaFgeBhBH'
-}
 
 // inisialisasi twit
 var T = new twit(config)
@@ -24,7 +17,7 @@ const getStatistic = () => {
 
     req.headers({
         "x-rapidapi-host": "covid-193.p.rapidapi.com",
-        "x-rapidapi-key": "9718aca7a0msh7b2ea3d8cd38f75p127ab0jsn14d475d1afb8"
+        "x-rapidapi-key": config.rapid_api_key
     });
 
     req.end(function (res) {
@@ -74,4 +67,4 @@ function sendTweet(body){
 
 getStatistic()
 
-// setInterval(getStatistic, 10800000);
+setInterval(getStatistic, 28800000);

@@ -1,1 +1,1 @@
-worker: node covidUpdateID.js
+worker: node covidUpdateIndonesia.js
