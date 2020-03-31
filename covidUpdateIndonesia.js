@@ -32,12 +32,13 @@ const getStatistic = () => {
             if (element.country == "Indonesia") {
                 console.log(element)
 
+                // format date
                 let reformat1 = element.time.split('T')
                 let reformat2 = reformat1[1].split('+')
                 let reformat3 = reformat2[0].split(':')
                 let hour = parseInt(reformat3[0])+7
-                let hourReformat = '0' + String.valueOf(hour)
-                reformat3[0] = hourReformat
+                reformat3[0] = hour % 24
+                if (reformat3[0] < 10) reformat3[0] = '0' + reformat3[0]              
                 let time = reformat3.join(':')
 
                 let title = emoji.emojify(`[Indonesia COVID19 update]`)
