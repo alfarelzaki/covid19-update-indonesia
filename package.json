@@ -1,0 +1,32 @@
+{
+  "name": "covid19-update-id",
+  "version": "1.0.0",
+  "description": "a bot that display daily update about corona virus spread in Indonesia",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfarelzaki/covid19-update-indonesia.git"
+  },
+  "keywords": [
+    "covid",
+    "bot",
+    "twitter",
+    "indonesia",
+    "spread",
+    "virus"
+  ],
+  "author": "alfarelzaki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alfarelzaki/covid-update-indonesia/issues"
+  },
+  "homepage": "https://github.com/alfarelzaki/covid-update-indonesia#readme",
+  "dependencies": {
+    "node-emoji": "^1.10.0",
+    "twit": "^2.2.11",
+    "unirest": "^0.6.0"
+  }
+}
